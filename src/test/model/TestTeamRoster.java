@@ -23,11 +23,41 @@ public class TestTeamRoster {
     @Test
     void testAddPlayerToRoster() {
         assertEquals(null, team1.getPlayerByIndex(0));
-        team1.addPlayerToRoster(Lebron);
+        team1.addPlayer(Lebron);
         assertEquals(Lebron, team1.getPlayerByIndex(0));
-        team1.addPlayerToRoster(Stephen);
+        team1.addPlayer(Stephen);
         assertEquals(Lebron, team1.getPlayerByIndex(0));
         assertEquals(Stephen, team1.getPlayerByIndex(1));
         assertEquals(null, team1.getPlayerByIndex(2));
+    }
+
+    @Test //ASK IF THIS IS OK
+    void testRemovePlayerToRoster() {
+        team1.addPlayer(Lebron);
+        team1.addPlayer(Stephen);
+        team1.removePlayer(Lebron);
+        assertEquals(Stephen, team1.getPlayerByIndex(0));
+        assertEquals(null, team1.getPlayerByName("Lebron James"));
+        assertEquals(Stephen, team1.getPlayerByName("Stephen Curry"));
+        team1.removePlayer(Stephen);
+        assertEquals(null, team1.getPlayerByName("Stephen Curry"));
+    }
+
+    @Test
+    void testGetPlayerByIndex() {
+        team1.addPlayer(Lebron);
+        team1.addPlayer(Stephen);
+        assertEquals(Lebron, team1.getPlayerByIndex(0));
+        assertEquals(Stephen, team1.getPlayerByIndex(1));
+        assertEquals(null, team1.getPlayerByIndex(2));
+    }
+
+    @Test
+    void testGetPlayerByName() {
+        team1.addPlayer(Lebron);
+        team1.addPlayer(Stephen);
+        assertEquals(Lebron, team1.getPlayerByName("Lebron James"));
+        assertEquals(Stephen, team1.getPlayerByName("Stephen Curry"));
+        assertEquals(null, team1.getPlayerByName("James Harden"));
     }
 }

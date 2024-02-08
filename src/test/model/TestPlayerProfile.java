@@ -60,7 +60,7 @@ class TestPlayerProfile {
         assertEquals(4, Lebron.getGamesThisWeek());
     }
 
-    @Test
+    @Test //ASK TA HOW TO DEAL WITH DOUBLES
     void testGetSetProjectedPoints() {
         assertEquals(0, Lebron.getProjectedPoints());
         Lebron.setProjectedPoints();

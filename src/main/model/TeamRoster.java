@@ -13,14 +13,31 @@ public class TeamRoster {
     public PlayerProfile getPlayerByIndex(int index) {
         if (index < playerRoster.size()) {
             return playerRoster.get(index);
+        } else {
+            return null;
         }
-        return null;
     }
 
     // MODIFIES: This
     // EFFECTS: Adds PlayerProfile into the playerRoster
-    public void addPlayerToRoster(PlayerProfile player) {
+    public void addPlayer(PlayerProfile player) {
         playerRoster.add(player);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: Removes PlayerProfile from playerRoster
+    public void removePlayer(PlayerProfile player) {
+        playerRoster.remove(player);
+    }
+
+    //EFFECTS: Searches for player by name
+    public PlayerProfile getPlayerByName(String inputName) {
+        for (PlayerProfile player: playerRoster) {
+            if (player.getName().equals(inputName)) {
+                return player;
+            }
+        }
+        return null;
     }
 
     //MODIFIES: This
