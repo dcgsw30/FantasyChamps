@@ -19,8 +19,8 @@ use, as I can use this application to improve my fantasy team and remain competi
 
 ## User Stories
 
-- I want to be able to add a basketball player to my team and specify the name, NBA team, basketball statistics, 
-game scheduled, and health status of each player
+- I want to be able to add a basketball player to my team and specify the name, NBA team, basketball statistics, and
+game scheduled of each player
 - I want to be able to view a list of the players on my team, along with the information listed above and the projected fantasy points 
 for the upcoming week
 - I want to be able to remove players on my team

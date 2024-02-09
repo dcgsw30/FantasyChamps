@@ -18,16 +18,32 @@ public class TeamRoster {
         }
     }
 
-    // MODIFIES: This
-    // EFFECTS: Adds PlayerProfile into the playerRoster
+    //EFFECTS: Gets all players in roster
+    public ArrayList<PlayerProfile> getTeam() {
+        return playerRoster;
+    }
+
+    //EFFECTS: Gets number of players in team
+    public int getTeamSize() {
+        return playerRoster.size();
+    }
+
+    //REQUIRES: Same player in roster cannot be added twice
+    //MODIFIES: This
+    //EFFECTS: Adds PlayerProfile into the playerRoster
     public void addPlayer(PlayerProfile player) {
         playerRoster.add(player);
     }
 
     //MODIFIES: this
-    //EFFECTS: Removes PlayerProfile from playerRoster
-    public void removePlayer(PlayerProfile player) {
-        playerRoster.remove(player);
+    //EFFECTS: Removes PlayerProfile from playerRoster, stops execution once found
+    public void removePlayer(String playerName) {
+        for (PlayerProfile player: playerRoster) {
+            if (player.getName().equals(playerName)) {
+                playerRoster.remove(player);
+                return;
+            }
+        }
     }
 
     //EFFECTS: Searches for player by name
@@ -43,7 +59,7 @@ public class TeamRoster {
     //MODIFIES: This
     //EFFECTS: Sums projected fantasy points of each player in the array
     public double sumFantasyPoints() {
-        double sum = 0.0;
+        double sum = 0;
         for (PlayerProfile player: playerRoster) {
             sum += player.getProjectedPoints();
         }

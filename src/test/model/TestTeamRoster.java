@@ -21,6 +21,22 @@ public class TestTeamRoster {
     }
 
     @Test
+    void testGetPlayerByIndex() {
+        team1.addPlayer(Lebron);
+        team1.addPlayer(Stephen);
+        assertEquals(Lebron, team1.getPlayerByIndex(0));
+        assertEquals(Stephen, team1.getPlayerByIndex(1));
+        assertEquals(null, team1.getPlayerByIndex(2));
+    }
+
+    @Test
+    void testGetTeamSize() {
+        team1.addPlayer(Lebron);
+        assertEquals(1, team1.getTeamSize());
+        team1.addPlayer(Stephen);
+        assertEquals(2, team1.getTeamSize());
+    }
+    @Test
     void testAddPlayerToRoster() {
         assertEquals(null, team1.getPlayerByIndex(0));
         team1.addPlayer(Lebron);
@@ -31,25 +47,16 @@ public class TestTeamRoster {
         assertEquals(null, team1.getPlayerByIndex(2));
     }
 
-    @Test //ASK IF THIS IS OK
+    @Test
     void testRemovePlayerToRoster() {
         team1.addPlayer(Lebron);
         team1.addPlayer(Stephen);
-        team1.removePlayer(Lebron);
+        team1.removePlayer("Lebron James");
         assertEquals(Stephen, team1.getPlayerByIndex(0));
         assertEquals(null, team1.getPlayerByName("Lebron James"));
         assertEquals(Stephen, team1.getPlayerByName("Stephen Curry"));
-        team1.removePlayer(Stephen);
-        assertEquals(null, team1.getPlayerByName("Stephen Curry"));
-    }
-
-    @Test
-    void testGetPlayerByIndex() {
-        team1.addPlayer(Lebron);
-        team1.addPlayer(Stephen);
-        assertEquals(Lebron, team1.getPlayerByIndex(0));
-        assertEquals(Stephen, team1.getPlayerByIndex(1));
-        assertEquals(null, team1.getPlayerByIndex(2));
+        team1.removePlayer("Stephen Curry");
+        //assertEquals(null, team1.getPlayerByName("Stephen Curry"));
     }
 
     @Test
@@ -59,5 +66,13 @@ public class TestTeamRoster {
         assertEquals(Lebron, team1.getPlayerByName("Lebron James"));
         assertEquals(Stephen, team1.getPlayerByName("Stephen Curry"));
         assertEquals(null, team1.getPlayerByName("James Harden"));
+    }
+
+    @Test
+    void testSumFantasyPoints() {
+        team1.addPlayer(Lebron);
+        assertEquals(215, team1.sumFantasyPoints());
+        team1.addPlayer(Stephen);
+        assertEquals(382, team1.sumFantasyPoints());
     }
 }

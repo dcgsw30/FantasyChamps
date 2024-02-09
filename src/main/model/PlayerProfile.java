@@ -23,7 +23,8 @@ public class PlayerProfile {
         this.averageBlocks = averageBlocks;
         this.averageTurnovers = averageTurnovers;
         this.gamesThisWeek = gamesThisWeek;
-        this.projectedPoints = 0;
+        this.projectedPoints = Math.ceil((((averagePoints * 1) + (averageRebounds * 1) + (averageAssists * 2)
+                + (averageSteals * 4) + (averageBlocks * 4) + (averageTurnovers * -1)) * gamesThisWeek));
     }
 
     public String getName() {
@@ -66,11 +67,5 @@ public class PlayerProfile {
         return projectedPoints;
     }
 
-    //MODIFIES: this
-    //EFFECTS: calculates projected fantasy points based on provided formula
-    public void setProjectedPoints() {
-        projectedPoints = (((averagePoints * 1) + (averageRebounds * 1) + (averageAssists * 2) + (averageSteals * 4)
-                + (averageBlocks * 4) + (averageTurnovers * -1)) * gamesThisWeek);
-    }
 
 }

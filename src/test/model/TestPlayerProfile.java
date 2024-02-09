@@ -8,11 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestPlayerProfile {
 
     PlayerProfile Lebron;
+    PlayerProfile Stephen;
 
     @BeforeEach
     void runBefore() {
         Lebron = new PlayerProfile("Lebron James", "Lakers", 29.3, 7.7,
                 6.1, 1.0, 0.8, 2.9, 4);
+        Stephen = new PlayerProfile("Stephen Curry", "Warriors", 35.3, 4.3,
+                7.3, 1.2, 0.1, 3.9, 3);
     }
 
     @Test
@@ -60,10 +63,9 @@ class TestPlayerProfile {
         assertEquals(4, Lebron.getGamesThisWeek());
     }
 
-    @Test //ASK TA HOW TO DEAL WITH DOUBLES
-    void testGetSetProjectedPoints() {
-        assertEquals(0, Lebron.getProjectedPoints());
-        Lebron.setProjectedPoints();
-        assertEquals(214, Lebron.getProjectedPoints());
+    @Test
+    void testGetProjectedPoints() {
+        assertEquals(215, Lebron.getProjectedPoints());
+        assertEquals(167, Stephen.getProjectedPoints());
     }
 }
