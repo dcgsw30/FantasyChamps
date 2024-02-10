@@ -3,6 +3,7 @@ package ui;
 import model.PlayerProfile;
 import model.TeamRoster;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FantasyApp {
@@ -30,11 +31,21 @@ public class FantasyApp {
         System.out.println("\nGoodbye!");
     }
 
-//    void processCommand(String str) {
-//        if (str == "a") {
-//
-//        }
-//    }
+    void processCommand(String str) {
+        if (str.equals("a")) {
+            actionAddPlayer();
+        } else if (str.equals("v")) {
+            actionViewRoster();
+        } else if (str.equals("s")) {
+            actionViewSelectPlayer();
+        } else if (str.equals("r")) {
+            actionRemovePlayer();
+        } else if (str.equals("c")) {
+            actionViewCumulativePoints();
+        } else {
+            System.out.println("Selection not valid...");
+        }
+    }
 
     // MODIFIES: this
     // EFFECTS: initializes team
@@ -52,9 +63,8 @@ public class FantasyApp {
         System.out.println("\ts -> search for player");
         System.out.println("\tr -> remove player");
         System.out.println("\tc -> get cumulative roster fantasy points");
-        System.out.println("\tq -> quit");
         String selection = input.next();
-        //processCommand(selection);
+        processCommand(selection);
     }
 
     //MODIFIES: this
@@ -81,18 +91,19 @@ public class FantasyApp {
         PlayerProfile createdPlayer = new PlayerProfile(name, team, averagePoints, averageRebounds, averageAssists,
                 averageSteals, averageBlocks, averageTurnovers, gamesThisWeek);
         myTeam.addPlayer(createdPlayer);
+        System.out.println("Player created");
     }
 
     //EFFECTS: displays entire roster
     private void actionViewRoster() {
-        myTeam.getTeam();
+        printAllPlayerDetails(myTeam.getTeam());
     }
 
     //EFFECTS: displays select player
     private void actionViewSelectPlayer() {
         System.out.println("Enter name of player");
         String nameQuery = input.next();
-        myTeam.getPlayerByName(nameQuery);
+        printPlayerDetails(myTeam.getPlayerByName(nameQuery));
     }
 
     //EFFECTS: removes player from roster
@@ -100,10 +111,28 @@ public class FantasyApp {
         System.out.println("Enter name of player that you want to remove");
         String nameQuery = input.next();
         myTeam.removePlayer(nameQuery);
+        System.out.println("Player " + nameQuery + " has been removed");
     }
 
     //EFFECTS: prints total projected fantasy points
-    private void actionViewProjectedPoints() {
-        System.out.println(myTeam.sumFantasyPoints());
+    private void actionViewCumulativePoints() {
+        System.out.println("Your team will generate " + myTeam.sumFantasyPoints() + " points this week");
     }
+
+    //EFFECTS: prints all details of a single player
+    private void printPlayerDetails(PlayerProfile player) {
+        System.out.println("Name: " + player.getName() + ", Team: " + player.getTeam() + ", Avg Points: "
+                + player.getAveragePoints() + ", Avg Rebounds: " + player.getAverageRebounds() + ", Avg Assists: "
+                + player.getAverageAssists() + ", Avg Steals: " + player.getAverageSteals() + ", Avg Blocks: "
+                + player.getAverageBlocks() + ", Avg TO: " + player.getAverageTurnovers() + ", Games: "
+                + player.getGamesThisWeek() + ", Projected Points: " + player.getProjectedPoints());
+    }
+
+    //EFFECTS: prints details of all players
+    private void printAllPlayerDetails(ArrayList<PlayerProfile> players) {
+        for (PlayerProfile player : players) {
+            printPlayerDetails(player);
+        }
+    }
+
 }
