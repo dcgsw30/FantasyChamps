@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestTeamRoster {
@@ -30,12 +32,22 @@ public class TestTeamRoster {
     }
 
     @Test
+    void testGetTeam() {
+        team1.addPlayer(Lebron);
+        team1.addPlayer(Stephen);
+        ArrayList<PlayerProfile> playerList = team1.getTeam();
+        assertEquals(Lebron, playerList.get(0));
+        assertEquals(Stephen, playerList.get(1));
+    }
+
+    @Test
     void testGetTeamSize() {
         team1.addPlayer(Lebron);
         assertEquals(1, team1.getTeamSize());
         team1.addPlayer(Stephen);
         assertEquals(2, team1.getTeamSize());
     }
+
     @Test
     void testAddPlayerToRoster() {
         assertEquals(null, team1.getPlayerByIndex(0));
@@ -48,15 +60,18 @@ public class TestTeamRoster {
     }
 
     @Test
-    void testRemovePlayerToRoster() {
+    void testRemovePlayerFromRoster() {
         team1.addPlayer(Lebron);
         team1.addPlayer(Stephen);
+        team1.removePlayer("James Harden");
+        assertEquals(Lebron, team1.getPlayerByIndex(0));
+        assertEquals(Stephen, team1.getPlayerByIndex(1));
         team1.removePlayer("Lebron James");
         assertEquals(Stephen, team1.getPlayerByIndex(0));
         assertEquals(null, team1.getPlayerByName("Lebron James"));
         assertEquals(Stephen, team1.getPlayerByName("Stephen Curry"));
         team1.removePlayer("Stephen Curry");
-        //assertEquals(null, team1.getPlayerByName("Stephen Curry"));
+        assertEquals(null, team1.getPlayerByName("Stephen Curry"));
     }
 
     @Test
@@ -70,6 +85,7 @@ public class TestTeamRoster {
 
     @Test
     void testSumFantasyPoints() {
+        assertEquals(0, team1.sumFantasyPoints());
         team1.addPlayer(Lebron);
         assertEquals(215, team1.sumFantasyPoints());
         team1.addPlayer(Stephen);
