@@ -15,8 +15,9 @@ public class FantasyApp {
         runFantasy();
     }
 
-    // MODIFIES: this
-    // EFFECTS: processes user input
+    //MODIFIES: this
+    //EFFECTS: processes user input
+    //NOTE: Code adapted from the example "AccountNotRobust" files, provided by the course
     private void runFantasy() {
         boolean keepGoing = true;
         String command = null;
@@ -47,15 +48,15 @@ public class FantasyApp {
         }
     }
 
-    // MODIFIES: this
-    // EFFECTS: initializes team
+    //MODIFIES: this
+    //EFFECTS: initializes team
     private void init() {
         myTeam = new TeamRoster();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
-    // EFFECTS: displays menu of options to user
+    //EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> add player");
@@ -121,14 +122,10 @@ public class FantasyApp {
 
     //EFFECTS: prints all details of a single player
     private void printPlayerDetails(PlayerProfile player) {
-        System.out.println("Name: " + player.getName() + ", Team: " + player.getTeam() + ", Avg Points: "
-                + player.getAveragePoints() + ", Avg Rebounds: " + player.getAverageRebounds() + ", Avg Assists: "
-                + player.getAverageAssists() + ", Avg Steals: " + player.getAverageSteals() + ", Avg Blocks: "
-                + player.getAverageBlocks() + ", Avg TO: " + player.getAverageTurnovers() + ", Games: "
-                + player.getGamesThisWeek() + ", Projected Points: " + player.getProjectedPoints());
+        System.out.println(player.toString());
     }
 
-    //EFFECTS: prints details of all players
+    //EFFECTS: prints details of all players in a list
     private void printAllPlayerDetails(ArrayList<PlayerProfile> players) {
         for (PlayerProfile player : players) {
             printPlayerDetails(player);

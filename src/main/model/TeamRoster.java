@@ -10,6 +10,8 @@ public class TeamRoster {
         playerRoster = new ArrayList<>();
     }
 
+    //REQUIRES: index must not be larger than array size
+    //EFFECTS: gets Player at the position of provided index
     public PlayerProfile getPlayerByIndex(int index) {
         if (index < playerRoster.size()) {
             return playerRoster.get(index);

@@ -19,6 +19,12 @@ class TestPlayerProfile {
     }
 
     @Test
+    void testToString() {
+        assertEquals("Name: Lebron James, Team: Lakers, Avg Points: 29.3, Avg Rebounds: 7.7, Avg Assists: 6.1"+
+                ", Avg Steals: 1.0, Avg Blocks: 0.8, Avg TO: 2.9, Games: 4, Projected Points: 215.0", Lebron.toString());
+    }
+
+    @Test
     void testGetName() {
         assertEquals("Lebron James", Lebron.getName());
     }

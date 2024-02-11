@@ -27,6 +27,21 @@ public class PlayerProfile {
                 + (averageSteals * 4) + (averageBlocks * 4) + (averageTurnovers * -1)) * gamesThisWeek));
     }
 
+    //EFFECTS: Converts each field in an object into string for UI
+    @Override
+    public String toString() {
+        return "Name: " + name
+                + ", Team: " + team
+                + ", Avg Points: " + averagePoints
+                + ", Avg Rebounds: " + averageRebounds
+                + ", Avg Assists: " + averageAssists
+                + ", Avg Steals: " + averageSteals
+                + ", Avg Blocks: " + averageBlocks
+                + ", Avg TO: " + averageTurnovers
+                + ", Games: " + gamesThisWeek
+                + ", Projected Points: " + projectedPoints;
+    }
+
     public String getName() {
         return name;
     }
@@ -66,6 +81,5 @@ public class PlayerProfile {
     public double getProjectedPoints() {
         return projectedPoints;
     }
-
 
 }
