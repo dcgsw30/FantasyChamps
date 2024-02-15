@@ -2,10 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
+//Represents a team roster that contains a list of PlayerProfiles
 public class TeamRoster {
-
     private ArrayList<PlayerProfile> playerRoster;
 
+    //EFFECTS: new empty roster is set
     public TeamRoster() {
         playerRoster = new ArrayList<>();
     }

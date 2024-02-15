@@ -6,6 +6,7 @@ import model.TeamRoster;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Fantasy application
 public class FantasyApp {
     private TeamRoster myTeam;
     private Scanner input;
@@ -32,6 +33,8 @@ public class FantasyApp {
         System.out.println("\nGoodbye!");
     }
 
+    //MODIFIES: this
+    //EFFECTS: processes user command
     void processCommand(String str) {
         if (str.equals("a")) {
             actionAddPlayer();
