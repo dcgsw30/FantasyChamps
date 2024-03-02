@@ -2,17 +2,26 @@ package ui;
 
 import model.PlayerProfile;
 import model.TeamRoster;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 //Fantasy application
 public class FantasyApp {
+    private static final String JSON_STORE = "./data/myTeam.json";
     private TeamRoster myTeam;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     //EFFECTS: runs the fantasy app
-    public FantasyApp() {
+    public FantasyApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runFantasy();
     }
 

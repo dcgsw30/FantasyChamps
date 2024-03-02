@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Represents a profile of an individual player with the name, team, player statistics,games, and projected points
-public class PlayerProfile {
+public class PlayerProfile implements Writable {
     private String name;
     private String team;
     private double averagePoints;
@@ -87,6 +90,20 @@ public class PlayerProfile {
 
     public double getProjectedPoints() {
         return projectedPoints;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("averagePoints", averagePoints);
+        json.put("averageRebounds", averageRebounds);
+        json.put("averageAssists", averageAssists);
+        json.put("averageSteals", averageSteals);
+        json.put("averageTurnovers", averageTurnovers);
+        json.put("gamesThisWeek", gamesThisWeek);
+        json.put("projectedPoints", projectedPoints);
+        return json;
     }
 
 }

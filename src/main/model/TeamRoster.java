@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 //Represents a team roster that contains a list of PlayerProfiles
-public class TeamRoster {
+public class TeamRoster implements Writable {
     private ArrayList<PlayerProfile> playerRoster;
 
     //EFFECTS: new empty roster is set
@@ -69,4 +73,21 @@ public class TeamRoster {
         return sum;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("players", playersToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray playersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (PlayerProfile p : playerRoster) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
+    }
 }
