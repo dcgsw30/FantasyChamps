@@ -57,7 +57,7 @@ public class JsonReader {
     }
 
     // MODIFIES: tr
-    // EFFECTS: parses thingy from JSON object and adds it to teamroster
+    // EFFECTS: parses player from JSON object and adds it to teamroster
     private void addPlayer(TeamRoster tr, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String team = jsonObject.getString("team");

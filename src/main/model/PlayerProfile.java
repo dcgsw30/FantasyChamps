@@ -96,10 +96,12 @@ public class PlayerProfile implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
+        json.put("team", team);
         json.put("averagePoints", averagePoints);
         json.put("averageRebounds", averageRebounds);
         json.put("averageAssists", averageAssists);
         json.put("averageSteals", averageSteals);
+        json.put("averageBlocks", averageBlocks);
         json.put("averageTurnovers", averageTurnovers);
         json.put("gamesThisWeek", gamesThisWeek);
         json.put("projectedPoints", projectedPoints);

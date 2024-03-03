@@ -9,7 +9,8 @@
       "averageSteals": 1.0,
       "averageBlocks": 0.8,
       "averageTurnovers": 2.9,
-      "gamesThisWeek": 4
+      "gamesThisWeek": 4,
+      "projectedPoints": 215
     },
     {
       "name": "Stephen Curry",
@@ -20,7 +21,8 @@
       "averageSteals": 1.2,
       "averageBlocks": 0.1,
       "averageTurnovers": 3.9,
-      "gamesThisWeek": 3
+      "gamesThisWeek": 3,
+      "projectedPoints": 167
     }
   ]
 }
