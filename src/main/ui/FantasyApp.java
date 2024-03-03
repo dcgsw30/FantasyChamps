@@ -55,6 +55,10 @@ public class FantasyApp {
             actionRemovePlayer();
         } else if (str.equals("c")) {
             actionViewCumulativePoints();
+        } else if (str.equals("sr")) {
+            actionSaveRoster();
+        } else if (str.equals("lr")) {
+            actionLoadRoster();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -76,6 +80,8 @@ public class FantasyApp {
         System.out.println("\ts -> search for player");
         System.out.println("\tr -> remove player");
         System.out.println("\tc -> get cumulative roster fantasy points");
+        System.out.println("\tsr -> save team roster to file");
+        System.out.println("\tlr -> load team roster from file");
         String selection = input.next();
         processCommand(selection);
     }
@@ -141,6 +147,29 @@ public class FantasyApp {
     private void printAllPlayerDetails(ArrayList<PlayerProfile> players) {
         for (PlayerProfile player : players) {
             printPlayerDetails(player);
+        }
+    }
+
+    // EFFECTS: saves the roster to file
+    private void actionSaveRoster() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myTeam);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads roster from file
+    private void actionLoadRoster() {
+        try {
+            myTeam = jsonReader.read();
+            System.out.println("Loaded roster from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

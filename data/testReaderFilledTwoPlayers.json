@@ -1,0 +1,26 @@
+{
+  "players": [
+    {
+      "name": "Lebron James",
+      "team": "Lakers",
+      "averagePoints": 29.3,
+      "averageRebounds": 7.7,
+      "averageAssists": 6.1,
+      "averageSteals": 1.0,
+      "averageBlocks": 0.8,
+      "averageTurnovers": 2.9,
+      "gamesThisWeek": 4
+    },
+    {
+      "name": "Stephen Curry",
+      "team": "Warriors",
+      "averagePoints": 35.3,
+      "averageRebounds": 4.3,
+      "averageAssists": 7.3,
+      "averageSteals": 1.2,
+      "averageBlocks": 0.1,
+      "averageTurnovers": 3.9,
+      "gamesThisWeek": 3
+    }
+  ]
+}
