@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
+// Represents a reader that reads teamRoster from JSON data stored in file
 //this class is adapted from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonReader {
     private String source;
@@ -47,7 +48,7 @@ public class JsonReader {
     }
 
     // MODIFIES: tr
-    // EFFECTS: parses players from JSON object and adds them to workroom
+    // EFFECTS: parses players from JSON object and adds them to TeamRoster
     private void addPlayers(TeamRoster tr, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("players");
         for (Object json : jsonArray) {
@@ -57,7 +58,7 @@ public class JsonReader {
     }
 
     // MODIFIES: tr
-    // EFFECTS: parses player from JSON object and adds it to teamroster
+    // EFFECTS: parses player from JSON object and adds it to TeamRoster
     private void addPlayer(TeamRoster tr, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String team = jsonObject.getString("team");

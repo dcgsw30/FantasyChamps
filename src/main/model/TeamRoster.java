@@ -80,7 +80,7 @@ public class TeamRoster implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns players in TeamRoster as a JSON array
     private JSONArray playersToJson() {
         JSONArray jsonArray = new JSONArray();
 

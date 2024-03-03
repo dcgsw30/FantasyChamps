@@ -27,4 +27,4 @@ for the upcoming week
 - I want to be able to search for individual players by name
 - I want to see the cumulative fantasy point production of my entire fantasy team roster
 - As a user, I want to be able to save my team to file (if I choose)
-- As a user, I want to be able to load my to do list from file
+- As a user, I want to be able to load my to do list from file (if I choose)
