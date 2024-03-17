@@ -1,0 +1,26 @@
+{"players": [
+    {
+        "projectedPoints": 215,
+        "averagePoints": 29.3,
+        "averageRebounds": 7.7,
+        "averageSteals": 1,
+        "gamesThisWeek": 4,
+        "name": "Lebron James",
+        "averageAssists": 6.1,
+        "team": "Lakers",
+        "averageBlocks": 0.8,
+        "averageTurnovers": 2.9
+    },
+    {
+        "projectedPoints": 167,
+        "averagePoints": 35.3,
+        "averageRebounds": 4.3,
+        "averageSteals": 1.2,
+        "gamesThisWeek": 3,
+        "name": "Stephen Curry",
+        "averageAssists": 7.3,
+        "team": "Warriors",
+        "averageBlocks": 0.1,
+        "averageTurnovers": 3.9
+    }
+]}
