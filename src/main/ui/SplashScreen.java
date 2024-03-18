@@ -11,18 +11,17 @@ public class SplashScreen extends JFrame implements ActionListener {
     public SplashScreen() throws FileNotFoundException {
 
         //set image
-        ImageIcon kobeImage = new ImageIcon("ui/images/kobe2.jpg"); //issue
         JLabel kobeLabel = new JLabel();
-        kobeLabel.setIcon(kobeImage);
+        kobeLabel.setIcon(new ImageIcon(getClass().getResource("./images/kobe2.jpg")));
 
         //image panel
         JPanel imagePanel = new JPanel();
-        imagePanel.setBackground(Color.red);
+        imagePanel.setBackground(Color.BLACK);
         imagePanel.setPreferredSize(new Dimension(600, 800));
         imagePanel.add(kobeLabel);
 
         //Button
-        JButton startAppButton = new JButton("Let's Win Some Leagues!");
+        JButton startAppButton = new JButton("View Current Team");
         startAppButton.setPreferredSize(new Dimension(600, 100));
         startAppButton.addActionListener(this);
 
@@ -37,7 +36,7 @@ public class SplashScreen extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    //EFFECTS: sets main menu visibility to false, opens new main menu screen
+    //EFFECTS: sets main menu visibility to false, opens new main menu screen containing all the loaded data
     @Override
     public void actionPerformed(ActionEvent e) {
         dispose();
