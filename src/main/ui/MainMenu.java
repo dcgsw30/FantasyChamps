@@ -1,13 +1,21 @@
 package ui;
 
+import model.TeamRoster;
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
 
 public class MainMenu extends JFrame {
+
+    TeamRoster currentRoster;
+
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
-    public MainMenu() {
+    public MainMenu(TeamRoster currentRoster) {
+
+        this.currentRoster = currentRoster;
+
         setTitle("FantasyChamps");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 900);
@@ -28,19 +36,16 @@ public class MainMenu extends JFrame {
         playerPanel.add(scrollPane, BorderLayout.CENTER);
 
         //buttons panel
-        JPanel buttonsPanel = new JPanel(new GridLayout(3,2));
+        JPanel buttonsPanel = new JPanel(new GridLayout(2,2));
         JButton button1 = new JButton("Add New Player");
-        JButton button2 = new JButton("Search Player");
-        JButton button3 = new JButton("Remove Player");
-        JButton button4 = new JButton("Get Points this Week");
-        JButton button5 = new JButton("Save Roster");
-        JButton button6 = new JButton("Back");
-        buttonsPanel.setPreferredSize(new Dimension(600, 150));
+        JButton button2 = new JButton("Get Points this Week");
+        JButton button3 = new JButton("Save Roster");
+        JButton button4 = new JButton("Back");
+        buttonsPanel.setPreferredSize(new Dimension(600, 100));
         buttonsPanel.add(button1);
         buttonsPanel.add(button2);
         buttonsPanel.add(button3);
         buttonsPanel.add(button4);
-        buttonsPanel.add(button5);
 
         //add panels
         add(pointsPanel, BorderLayout.NORTH);

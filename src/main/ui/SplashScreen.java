@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
 
-public class SplashScreen extends JFrame implements ActionListener {
+public class SplashScreen extends JFrame {
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public SplashScreen() throws FileNotFoundException {
@@ -23,11 +23,12 @@ public class SplashScreen extends JFrame implements ActionListener {
         //Create New Team Button
         JButton createTeamButton = new JButton("Create New Team");
         createTeamButton.setPreferredSize(new Dimension(600, 100));
+        createTeamButton.addActionListener(new CreateNewTeamButtonListener(this));
 
         //Load Team Button
         JButton loadTeamButton = new JButton("Load Saved Team");
         loadTeamButton.setPreferredSize(new Dimension(600, 100));
-        loadTeamButton.addActionListener(this);
+        loadTeamButton.addActionListener(new LoadNewTeamButtonListener(this));
 
         //button panel
         JPanel buttonPanel = new JPanel(new GridLayout(2, 1));
@@ -44,13 +45,5 @@ public class SplashScreen extends JFrame implements ActionListener {
         add(imagePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.SOUTH);
         setVisible(true);
-    }
-
-    //EFFECTS: sets main menu visibility to false, opens new main menu screen containing all the loaded data
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        dispose();
-        MainMenu nextScreen = new MainMenu();
-        nextScreen.setVisible(true);
     }
 }
