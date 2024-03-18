@@ -29,19 +29,18 @@ public class MainMenu extends JFrame {
 
         //buttons panel
         JPanel buttonsPanel = new JPanel(new GridLayout(3,2));
-        JButton button1 = new JButton("Test 1");
-        JButton button2 = new JButton("Test 1");
-        JButton button3 = new JButton("Test 1");
-        JButton button4 = new JButton("Test 1");
-        JButton button5 = new JButton("Test 1");
-        JButton button6 = new JButton("Test 1");
+        JButton button1 = new JButton("Add New Player");
+        JButton button2 = new JButton("Search Player");
+        JButton button3 = new JButton("Remove Player");
+        JButton button4 = new JButton("Get Points this Week");
+        JButton button5 = new JButton("Save Roster");
+        JButton button6 = new JButton("Back");
         buttonsPanel.setPreferredSize(new Dimension(600, 150));
         buttonsPanel.add(button1);
         buttonsPanel.add(button2);
         buttonsPanel.add(button3);
         buttonsPanel.add(button4);
         buttonsPanel.add(button5);
-        buttonsPanel.add(button6);
 
         //add panels
         add(pointsPanel, BorderLayout.NORTH);

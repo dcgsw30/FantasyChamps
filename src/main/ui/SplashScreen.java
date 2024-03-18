@@ -17,13 +17,23 @@ public class SplashScreen extends JFrame implements ActionListener {
         //image panel
         JPanel imagePanel = new JPanel();
         imagePanel.setBackground(Color.BLACK);
-        imagePanel.setPreferredSize(new Dimension(600, 800));
+        imagePanel.setPreferredSize(new Dimension(600, 700));
         imagePanel.add(kobeLabel);
 
-        //Button
-        JButton startAppButton = new JButton("View Current Team");
-        startAppButton.setPreferredSize(new Dimension(600, 100));
-        startAppButton.addActionListener(this);
+        //Create New Team Button
+        JButton createTeamButton = new JButton("Create New Team");
+        createTeamButton.setPreferredSize(new Dimension(600, 100));
+
+        //Load Team Button
+        JButton loadTeamButton = new JButton("Load Saved Team");
+        loadTeamButton.setPreferredSize(new Dimension(600, 100));
+        loadTeamButton.addActionListener(this);
+
+        //button panel
+        JPanel buttonPanel = new JPanel(new GridLayout(2, 1));
+        buttonPanel.setPreferredSize(new Dimension(600, 200));
+        buttonPanel.add(createTeamButton);
+        buttonPanel.add(loadTeamButton);
 
         //set frame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,7 +42,7 @@ public class SplashScreen extends JFrame implements ActionListener {
 
         //add components
         add(imagePanel, BorderLayout.NORTH);
-        add(startAppButton, BorderLayout.SOUTH);
+        add(buttonPanel, BorderLayout.SOUTH);
         setVisible(true);
     }
 
