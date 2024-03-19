@@ -27,7 +27,6 @@ public class MainMenu extends JFrame {
 
         //player panel
         JPanel playerPanel = new JPanel(new BorderLayout());
-        playerPanel.setBackground(Color.YELLOW);
         JTextArea textArea = new JTextArea(10, 40);
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setLineWrap(true);
@@ -36,16 +35,27 @@ public class MainMenu extends JFrame {
         playerPanel.add(scrollPane, BorderLayout.CENTER);
 
         //buttons panel
-        JPanel buttonsPanel = new JPanel(new GridLayout(2,2));
-        JButton button1 = new JButton("Add New Player");
+        JPanel buttonsPanel = new JPanel(new GridLayout(3,1));
+
+        //button1 and event listener
+        JButton addNewPlayerButton = new JButton("Add New Player");
+        addNewPlayerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                AddScreen addPlayerScreen = new AddScreen(currentRoster);
+                addPlayerScreen.setVisible(true);
+            }
+        });
+
+
+
         JButton button2 = new JButton("Get Points this Week");
         JButton button3 = new JButton("Save Roster");
-        JButton button4 = new JButton("Back");
         buttonsPanel.setPreferredSize(new Dimension(600, 100));
-        buttonsPanel.add(button1);
+        buttonsPanel.add(addNewPlayerButton);
         buttonsPanel.add(button2);
         buttonsPanel.add(button3);
-        buttonsPanel.add(button4);
 
         //add panels
         add(pointsPanel, BorderLayout.NORTH);

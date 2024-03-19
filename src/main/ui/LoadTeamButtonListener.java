@@ -7,14 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class LoadNewTeamButtonListener implements ActionListener {
+public class LoadTeamButtonListener implements ActionListener {
 
     private static final String JSON_STORE = "./data/myTeam.json";
     private SplashScreen splashScreen;
     private TeamRoster roster;
     private JsonReader jsonReader;
 
-    public LoadNewTeamButtonListener(SplashScreen splashScreen) {
+    public LoadTeamButtonListener(SplashScreen splashScreen) {
         this.splashScreen = splashScreen;
         jsonReader = new JsonReader(JSON_STORE);
     }
