@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class SplashScreen extends JFrame {
 
-
     private static final String JSON_STORE = "./data/myTeam.json";
     private JsonReader jsonReader;
     private TeamRoster roster;
@@ -21,8 +20,6 @@ public class SplashScreen extends JFrame {
     private JButton createTeamButton;
     private JButton loadTeamButton;
     private JLabel kobeLabel;
-
-
 
     public SplashScreen() throws FileNotFoundException {
         jsonReader = new JsonReader(JSON_STORE);
@@ -106,6 +103,4 @@ public class SplashScreen extends JFrame {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
-
-
 }

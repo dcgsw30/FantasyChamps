@@ -151,7 +151,6 @@ public class AddScreen extends JFrame {
         games = new JLabel("Games This Week");
     }
 
-
     //MODIFIES: This
     //EFFECTS: sets the frame structure
     private void setFrame() {

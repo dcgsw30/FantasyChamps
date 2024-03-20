@@ -1,12 +1,26 @@
-{"players": [{
-    "projectedPoints": 142,
-    "averagePoints": 30.3,
-    "averageRebounds": 2.2,
-    "averageSteals": 1.1,
-    "gamesThisWeek": 3,
-    "name": "Desmond Bane",
-    "averageAssists": 4.4,
-    "team": "Grizzlies",
-    "averageBlocks": 0.4,
-    "averageTurnovers": 0
-}]}
+{"players": [
+    {
+        "projectedPoints": 142,
+        "averagePoints": 30.3,
+        "averageRebounds": 2.2,
+        "averageSteals": 1.1,
+        "gamesThisWeek": 3,
+        "name": "Desmond Bane",
+        "averageAssists": 4.4,
+        "team": "Grizzlies",
+        "averageBlocks": 0.4,
+        "averageTurnovers": 0
+    },
+    {
+        "projectedPoints": 245,
+        "averagePoints": 30.3,
+        "averageRebounds": 2.2,
+        "averageSteals": 2.2,
+        "gamesThisWeek": 4,
+        "name": "Lebron James",
+        "averageAssists": 3.3,
+        "team": "Los Angeles Lakers",
+        "averageBlocks": 3.3,
+        "averageTurnovers": 0
+    }
+]}
