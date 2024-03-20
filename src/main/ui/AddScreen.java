@@ -148,7 +148,7 @@ public class AddScreen extends JFrame {
         steals = new JLabel("Average Steals");
         blocks = new JLabel("Average Blocks");
         turnovers = new JLabel("Average Turnovers");
-        games = new JLabel("Average Games");
+        games = new JLabel("Games This Week");
     }
 
 

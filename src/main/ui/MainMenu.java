@@ -13,13 +13,13 @@ public class MainMenu extends JFrame {
 
     private static final String JSON_STORE = "./data/myTeam.json";
     private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
     private TeamRoster currentRoster;
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public MainMenu(TeamRoster currentRoster) {
 
         this.currentRoster = currentRoster;
+        jsonWriter = new JsonWriter(JSON_STORE);
 
         setTitle("FantasyChamps");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +29,9 @@ public class MainMenu extends JFrame {
         JPanel pointsPanel = new JPanel();
         pointsPanel.setBackground(Color.LIGHT_GRAY);
         pointsPanel.setPreferredSize(new Dimension(600,75));
+        JLabel pointLabel = new JLabel("Your Team Will generate: ");
+        pointsPanel.add(pointLabel);
+
 
         //player panel
         JPanel playerPanel = new JPanel(new BorderLayout());
@@ -58,12 +61,18 @@ public class MainMenu extends JFrame {
         viewRosterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
 
-
+        //display points on upper panel button
         JButton getPointsThisWeek = new JButton("Get Points this Week");
+        getPointsThisWeek.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double totalScore = currentRoster.sumFantasyPoints();
+                pointLabel.setText("Your Team Will Generate: " + totalScore + " Fantasy Points");
+            }
+        });
 
         //save roster button
         JButton saveRosterButton = new JButton("Save Roster");
@@ -99,11 +108,6 @@ public class MainMenu extends JFrame {
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
-    }
-
-    //EFFECTS: prints total projected fantasy points
-    private void actionViewCumulativePoints() {
-        System.out.println("Your team will generate " + currentRoster.sumFantasyPoints() + " points this week");
     }
 
 }
