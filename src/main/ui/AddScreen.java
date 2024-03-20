@@ -10,60 +10,68 @@ import java.awt.event.ActionListener;
 
 public class AddScreen extends JFrame {
 
-    TeamRoster currentRoster;
+    private TeamRoster currentRoster;
+    private JPanel dataInputPanel;
+    private JPanel optionPanel;
+    private JButton addPlayer;
+    private JButton goBackMainMenu;
+    private JLabel name;
+    private JLabel team;
+    private JLabel point;
+    private JLabel rebound;
+    private JLabel assist;
+    private JLabel steals;
+    private JLabel blocks;
+    private JLabel turnovers;
+    private JLabel games;
+    private JTextField nameField;
+    private JTextField teamField;
+    private JTextField pointField;
+    private JTextField reboundField;
+    private JTextField assistField;
+    private JTextField stealField;
+    private JTextField blockField;
+    private JTextField toField;
+    private JTextField gpField;
 
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public AddScreen(TeamRoster currentRoster) {
-
         this.currentRoster = currentRoster;
 
+        initializeDataInputPanel();
+        initializeLabels();
+        initializeTextFields();
+        addLabelsFields(dataInputPanel);
+        initializeButtonPanel();
+        initializeAddPlayerButton(currentRoster);
+        initializeBackMainMenuButton(currentRoster);
+        addButtonsToPanel();
+        setFrame();
+        add(dataInputPanel, BorderLayout.NORTH);
+        add(optionPanel, BorderLayout.SOUTH);
+    }
 
-        //data Panel
-        JPanel dataInput = new JPanel();
-        dataInput.setLayout(new GridLayout(9, 2));
+    //EFFECTS: adds created buttons into button panel
+    private void addButtonsToPanel() {
+        optionPanel.add(addPlayer);
+        optionPanel.add(goBackMainMenu);
+    }
 
-        JLabel name = new JLabel("Player name");
-        JLabel team = new JLabel("Team");
-        JLabel point = new JLabel("Average Points");
-        JLabel rebound = new JLabel("Average Rebounds");
-        JLabel assist = new JLabel("Average Assists");
-        JLabel steals = new JLabel("Average Steals");
-        JLabel blocks = new JLabel("Average Blocks");
-        JLabel turnovers = new JLabel("Average Turnovers");
-        JLabel games = new JLabel("Average Games");
+    //EFFECTS: Creates back to main menu button
+    private void initializeBackMainMenuButton(TeamRoster currentRoster) {
+        goBackMainMenu = new JButton("Back");
+        goBackMainMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                MainMenu mainMenu = new MainMenu(currentRoster);
+                mainMenu.setVisible(true);
+            }
+        });
+    }
 
-
-        JTextField nameField = new JTextField(20);
-        JTextField teamField = new JTextField(20);
-        JTextField pointField = new JTextField(20);
-        JTextField reboundField = new JTextField(20);
-        JTextField assistField = new JTextField(20);
-        JTextField stealField = new JTextField(20);
-        JTextField blockField = new JTextField(20);
-        JTextField toField = new JTextField(20);
-        JTextField gpField = new JTextField(20);
-
-        dataInput.add(name);
-        dataInput.add(nameField);
-        dataInput.add(team);
-        dataInput.add(teamField);
-        dataInput.add(point);
-        dataInput.add(pointField);
-        dataInput.add(rebound);
-        dataInput.add(reboundField);
-        dataInput.add(assist);
-        dataInput.add(assistField);
-        dataInput.add(steals);
-        dataInput.add(stealField);
-        dataInput.add(blocks);
-        dataInput.add(blockField);
-        dataInput.add(turnovers);
-        dataInput.add(toField);
-        dataInput.add(games);
-        dataInput.add(gpField);
-
-        //add player button
-        JButton addPlayer = new JButton("Add To Roster");
+    //EFFECTS: Creates add player button
+    private void initializeAddPlayerButton(TeamRoster currentRoster) {
+        addPlayer = new JButton("Add To Roster");
         addPlayer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -81,12 +89,68 @@ public class AddScreen extends JFrame {
                 currentRoster.addPlayer(newPlayer);
             }
         });
-
-        setFrame();
-        // place panels
-        add(dataInput, BorderLayout.NORTH);
-        add(addPlayer, BorderLayout.SOUTH);
     }
+
+    //EFFECTS: creates a panel to place
+    private void initializeButtonPanel() {
+        optionPanel = new JPanel(new GridLayout(1, 2));
+        optionPanel.setPreferredSize(new Dimension(600, 100));
+    }
+
+    //EFFECTS: creates a panel to place labels and text fields
+    private void initializeDataInputPanel() {
+        dataInputPanel = new JPanel();
+        dataInputPanel.setLayout(new GridLayout(9, 2));
+    }
+
+    //EFFECTS: adds labels and fields to screen panel
+    private void addLabelsFields(JPanel dataInputPanel) {
+        dataInputPanel.add(name);
+        dataInputPanel.add(nameField);
+        dataInputPanel.add(team);
+        dataInputPanel.add(teamField);
+        dataInputPanel.add(point);
+        dataInputPanel.add(pointField);
+        dataInputPanel.add(rebound);
+        dataInputPanel.add(reboundField);
+        dataInputPanel.add(assist);
+        dataInputPanel.add(assistField);
+        dataInputPanel.add(steals);
+        dataInputPanel.add(stealField);
+        dataInputPanel.add(blocks);
+        dataInputPanel.add(blockField);
+        dataInputPanel.add(turnovers);
+        dataInputPanel.add(toField);
+        dataInputPanel.add(games);
+        dataInputPanel.add(gpField);
+    }
+
+    //EFFECTS: initialize text fields for add screen panel
+    private void initializeTextFields() {
+        nameField = new JTextField(20);
+        teamField = new JTextField(20);
+        pointField = new JTextField(20);
+        reboundField = new JTextField(20);
+        assistField = new JTextField(20);
+        stealField = new JTextField(20);
+        blockField = new JTextField(20);
+        toField = new JTextField(20);
+        gpField = new JTextField(20);
+    }
+
+    //EFFECTS: creates label for add screen panel
+    private void initializeLabels() {
+        name = new JLabel("Player name");
+        team = new JLabel("Team");
+        point = new JLabel("Average Points");
+        rebound = new JLabel("Average Rebounds");
+        assist = new JLabel("Average Assists");
+        steals = new JLabel("Average Steals");
+        blocks = new JLabel("Average Blocks");
+        turnovers = new JLabel("Average Turnovers");
+        games = new JLabel("Average Games");
+    }
+
 
     //MODIFIES: This
     //EFFECTS: sets the frame structure
@@ -107,7 +171,7 @@ public class AddScreen extends JFrame {
         return returnValue;
     }
 
-    //EFFECTS: converts text field value into a int
+    //EFFECTS: converts text field value into an int
     private int convertTextFieldIntoInt(String input) {
         int returnValue;
         try {

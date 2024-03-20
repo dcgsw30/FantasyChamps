@@ -1,6 +1,8 @@
 package ui;
 
 import model.TeamRoster;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -9,7 +11,10 @@ import java.io.FileNotFoundException;
 
 public class MainMenu extends JFrame {
 
-    TeamRoster currentRoster;
+    private static final String JSON_STORE = "./data/myTeam.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private TeamRoster currentRoster;
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public MainMenu(TeamRoster currentRoster) {
@@ -35,9 +40,9 @@ public class MainMenu extends JFrame {
         playerPanel.add(scrollPane, BorderLayout.CENTER);
 
         //buttons panel
-        JPanel buttonsPanel = new JPanel(new GridLayout(3,1));
+        JPanel buttonsPanel = new JPanel(new GridLayout(2,2));
 
-        //button1 and event listener
+        //add player button and event listener
         JButton addNewPlayerButton = new JButton("Add New Player");
         addNewPlayerButton.addActionListener(new ActionListener() {
             @Override
@@ -48,14 +53,33 @@ public class MainMenu extends JFrame {
             }
         });
 
+        //view team roster and event listener
+        JButton viewRosterButton = new JButton("View Team Roster");
+        viewRosterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
 
-        JButton button2 = new JButton("Get Points this Week");
-        JButton button3 = new JButton("Save Roster");
+        JButton getPointsThisWeek = new JButton("Get Points this Week");
+
+        //save roster button
+        JButton saveRosterButton = new JButton("Save Roster");
+        saveRosterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionSaveRoster();
+            }
+        });
+
+
         buttonsPanel.setPreferredSize(new Dimension(600, 100));
         buttonsPanel.add(addNewPlayerButton);
-        buttonsPanel.add(button2);
-        buttonsPanel.add(button3);
+        buttonsPanel.add(viewRosterButton);
+        buttonsPanel.add(getPointsThisWeek);
+        buttonsPanel.add(saveRosterButton);
 
         //add panels
         add(pointsPanel, BorderLayout.NORTH);
@@ -64,4 +88,22 @@ public class MainMenu extends JFrame {
 
         setVisible(true);
     }
+
+    // EFFECTS: saves the roster to file
+    private void actionSaveRoster() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(currentRoster);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    //EFFECTS: prints total projected fantasy points
+    private void actionViewCumulativePoints() {
+        System.out.println("Your team will generate " + currentRoster.sumFantasyPoints() + " points this week");
+    }
+
 }
