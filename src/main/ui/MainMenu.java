@@ -52,7 +52,8 @@ public class MainMenu extends JFrame {
         add(buttonsPanel, BorderLayout.SOUTH);
     }
 
-    //EFFECTS: Adds buttons to buttonsPanel
+    //MODIFIES: this
+    //EFFECTS: adds buttons to buttonsPanel
     private void addButtons() {
         buttonsPanel.add(addNewPlayerButton);
         buttonsPanel.add(viewRosterButton);
@@ -60,7 +61,8 @@ public class MainMenu extends JFrame {
         buttonsPanel.add(saveRosterButton);
     }
 
-    //EFFECTS: Sets the button that saves roster
+    //MODIFIES: this
+    //EFFECTS: sets the button that saves roster
     private void initializeSaveRosterButton() {
         saveRosterButton = new JButton("Save Roster");
         saveRosterButton.addActionListener(new ActionListener() {
@@ -71,7 +73,8 @@ public class MainMenu extends JFrame {
         });
     }
 
-    //EFFECTS: Sets the button that gets points
+    //MODIFIES: this
+    //EFFECTS: sets the button that gets points
     private void initializeGetPointsButton(TeamRoster currentRoster) {
         getPointsThisWeek = new JButton("Get Points this Week");
         getPointsThisWeek.addActionListener(new ActionListener() {
@@ -83,7 +86,8 @@ public class MainMenu extends JFrame {
         });
     }
 
-    //EFFECTS: Sets the button that views roster
+    //MODIFIES: this
+    //EFFECTS: sets the button that views roster
     private void initializeViewRosterButton(TeamRoster currentRoster) {
         viewRosterButton = new JButton("View Team Roster");
         viewRosterButton.addActionListener(new ActionListener() {
@@ -94,7 +98,8 @@ public class MainMenu extends JFrame {
         });
     }
 
-    //EFFECTS: Sets the button that adds new player
+    //MODIFIES: this
+    //EFFECTS: sets the button that adds new player
     private void initializeAddNewPlayerButton(TeamRoster currentRoster) {
         addNewPlayerButton = new JButton("Add New Player");
         addNewPlayerButton.addActionListener(new ActionListener() {
@@ -107,13 +112,15 @@ public class MainMenu extends JFrame {
         });
     }
 
-    //EFFECTS: Sets the panel that displays all buttons
+    //MODIFIES: this
+    //EFFECTS: sets the panel that displays all buttons
     private void initializeButtonsPanel() {
         buttonsPanel = new JPanel(new GridLayout(2,2));
         buttonsPanel.setPreferredSize(new Dimension(600, 100));
     }
 
-    //EFFECTS: Sets the panel that displays players
+    //MODIFIES: this
+    //EFFECTS: sets the panel that displays players
     private void initializePlayerPanel() {
         playerPanel = new JPanel(new BorderLayout());
         playerTextArea = new JTextArea(10, 40);
@@ -124,8 +131,8 @@ public class MainMenu extends JFrame {
         playerPanel.add(scrollPane, BorderLayout.CENTER);
     }
 
-
-    //EFFECTS: Sets the points panel
+    //MODIFIES: this
+    //EFFECTS: sets the points panel
     private void initializePointsPanel() {
         pointsPanel = new JPanel();
         pointsPanel.setBackground(Color.LIGHT_GRAY);
@@ -134,15 +141,15 @@ public class MainMenu extends JFrame {
         pointsPanel.add(pointLabel);
     }
 
-    //MODIFIES: This
-    //EFFECTS: Sets the frame of the application
+    //MODIFIES: this
+    //EFFECTS: sets the frame of the application
     private void setFrame() {
         setTitle("FantasyChamps");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 900);
     }
 
-    //MODIFIES: This
+    //MODIFIES: this
     //EFFECTS: saves the roster to file
     private void actionSaveRoster() {
         try {
@@ -155,7 +162,8 @@ public class MainMenu extends JFrame {
         }
     }
 
-    //EFFECTS: Displays all statistics of each player in the roster
+    //MODIFIES: this
+    //EFFECTS: displays all statistics of each player in the roster
     private void displayAllPlayerDetails(ArrayList<PlayerProfile> players) {
         for (PlayerProfile player : players) {
             playerTextArea.append(player.toString() + "\n\n");

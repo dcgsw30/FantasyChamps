@@ -28,3 +28,10 @@ for the upcoming week
 - I want to see the cumulative fantasy point production of my entire fantasy team roster
 - As a user, I want to be able to save my team to file (if I choose)
 - As a user, I want to be able to load my to do list from file (if I choose)
+
+## Instructions for grader
+- You can generate the first required action related to "adding multiple Xs to a Y" by pressing the add player button in the main page, inputting player info and pressing the add player button
+- You can generate the second required action related to "see the cumulative fantasy point production" by pressing get points this week, to get the number of points
+- You can locate my visual component by starting the application and viewing the splash screen
+- You can save the state of my application by clicking the save button in the main button
+- You can reload the state of my application by clicking on the load team button in the splash scree

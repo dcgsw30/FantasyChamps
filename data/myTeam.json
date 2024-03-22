@@ -22,5 +22,17 @@
         "team": "Los Angeles Lakers",
         "averageBlocks": 3.3,
         "averageTurnovers": 0
+    },
+    {
+        "projectedPoints": 141,
+        "averagePoints": 10.1,
+        "averageRebounds": 9.9,
+        "averageSteals": 1.1,
+        "gamesThisWeek": 5,
+        "name": "Vince Williams",
+        "averageAssists": 3.3,
+        "team": "Memphis Grizzlies",
+        "averageBlocks": 0.3,
+        "averageTurnovers": 4
     }
 ]}

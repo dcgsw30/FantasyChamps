@@ -31,16 +31,16 @@ public class SplashScreen extends JFrame {
         setVisible(true);
     }
 
-    //MODIFIES: This
-    //EFFECTS: Sets the frame of the application
+    //MODIFIES: this
+    //EFFECTS: sets the frame of the application
     private void setFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(600, 900);
         setTitle("FantasyChamps");
     }
 
-    //MODIFIES: This
-    //EFFECTS: Creates button panel and adds two buttons and their respective action listeners
+    //MODIFIES: this
+    //EFFECTS: creates button panel and adds two buttons and their respective action listeners
     private void initializeButtonPanel() {
         initializeCreateTeamButton();
         initializeLoadTeamButton();
@@ -50,8 +50,8 @@ public class SplashScreen extends JFrame {
         buttonPanel.add(loadTeamButton);
     }
 
-    //MODIFIES: This
-    //EFFECTS: Creates a load saved team button that activates the corresponding listener
+    //MODIFIES: this
+    //EFFECTS: creates a load saved team button that activates the corresponding listener
     private void initializeLoadTeamButton() {
         loadTeamButton = new JButton("Load Saved Team");
         loadTeamButton.setPreferredSize(new Dimension(600, 100));
@@ -66,8 +66,8 @@ public class SplashScreen extends JFrame {
         });
     }
 
-    //MODIFIES: This
-    //EFFECTS: Creates a create new team button that transfers page to main menu with new team
+    //MODIFIES: this
+    //EFFECTS: creates a create new team button that transfers page to main menu with new team
     private void initializeCreateTeamButton() {
         createTeamButton = new JButton("Create New Team");
         createTeamButton.setPreferredSize(new Dimension(600, 100));
@@ -83,7 +83,7 @@ public class SplashScreen extends JFrame {
     }
 
     //MODIFIES: this
-    //EFFECTS: Creates image panel and adding an image to the panel
+    //EFFECTS: creates image panel and adding an image to the panel
     private void initializeImagePanel() {
         kobeLabel = new JLabel();
         kobeLabel.setIcon(new ImageIcon(getClass().getResource("./images/kobe2.jpg")));
@@ -93,8 +93,8 @@ public class SplashScreen extends JFrame {
         imagePanel.add(kobeLabel);
     }
 
-    //MODIFIES: THIS
-    //EFFECTS: Loads data from JSON_STORE
+    //MODIFIES: this
+    //EFFECTS: loads data from JSON_STORE
     private void loadRoster() {
         try {
             roster = jsonReader.read();

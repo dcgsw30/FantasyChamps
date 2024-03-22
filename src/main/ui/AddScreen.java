@@ -50,12 +50,14 @@ public class AddScreen extends JFrame {
         add(optionPanel, BorderLayout.SOUTH);
     }
 
+    //MODIFIES: this
     //EFFECTS: adds created buttons into button panel
     private void addButtonsToPanel() {
         optionPanel.add(addPlayer);
         optionPanel.add(goBackMainMenu);
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates back to main menu button
     private void initializeBackMainMenuButton(TeamRoster currentRoster) {
         goBackMainMenu = new JButton("Back");
@@ -69,6 +71,7 @@ public class AddScreen extends JFrame {
         });
     }
 
+    //MODIFIES: this
     //EFFECTS: Creates add player button
     private void initializeAddPlayerButton(TeamRoster currentRoster) {
         addPlayer = new JButton("Add To Roster");
@@ -91,18 +94,21 @@ public class AddScreen extends JFrame {
         });
     }
 
+    //MODIFIES: this
     //EFFECTS: creates a panel to place
     private void initializeButtonPanel() {
         optionPanel = new JPanel(new GridLayout(1, 2));
         optionPanel.setPreferredSize(new Dimension(600, 100));
     }
 
+    //MODIFIES: this
     //EFFECTS: creates a panel to place labels and text fields
     private void initializeDataInputPanel() {
         dataInputPanel = new JPanel();
         dataInputPanel.setLayout(new GridLayout(9, 2));
     }
 
+    //MODIFIES: this
     //EFFECTS: adds labels and fields to screen panel
     private void addLabelsFields(JPanel dataInputPanel) {
         dataInputPanel.add(name);
@@ -125,6 +131,7 @@ public class AddScreen extends JFrame {
         dataInputPanel.add(gpField);
     }
 
+    //MODIFIES: this
     //EFFECTS: initialize text fields for add screen panel
     private void initializeTextFields() {
         nameField = new JTextField(20);
@@ -138,6 +145,7 @@ public class AddScreen extends JFrame {
         gpField = new JTextField(20);
     }
 
+    //MODIFIES: this
     //EFFECTS: creates label for add screen panel
     private void initializeLabels() {
         name = new JLabel("Player name");
@@ -151,7 +159,7 @@ public class AddScreen extends JFrame {
         games = new JLabel("Games This Week");
     }
 
-    //MODIFIES: This
+    //MODIFIES: this
     //EFFECTS: sets the frame structure
     private void setFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -159,6 +167,7 @@ public class AddScreen extends JFrame {
         setTitle("FantasyChamps");
     }
 
+    //MODIFIES: this
     //EFFECTS: converts text field value into a double
     private double convertTextFieldIntoDouble(String input) {
         double returnValue;
@@ -170,6 +179,7 @@ public class AddScreen extends JFrame {
         return returnValue;
     }
 
+    //MODIFIES: this
     //EFFECTS: converts text field value into an int
     private int convertTextFieldIntoInt(String input) {
         int returnValue;
