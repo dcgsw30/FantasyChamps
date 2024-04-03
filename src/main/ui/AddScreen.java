@@ -64,7 +64,7 @@ public class AddScreen extends JFrame {
             public void windowClosing(WindowEvent e) {
                 Iterator<Event> events = EventLog.getInstance().iterator();
                 while (events.hasNext()) {
-                    System.out.println(events.next());
+                    System.out.println(events.next().getDescription());
                 }
             }
         });
