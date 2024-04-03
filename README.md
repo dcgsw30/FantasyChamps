@@ -34,4 +34,16 @@ for the upcoming week
 - You can generate the second required action related to "see the cumulative fantasy point production" by pressing get points this week, to get the number of points
 - You can locate my visual component by starting the application and viewing the splash screen
 - You can save the state of my application by clicking the save button in the main button
-- You can reload the state of my application by clicking on the load team button in the splash scree
+- You can reload the state of my application by clicking on the load team button in the splash screen
+
+## Phase 4: Task 2
+Here is an example demo of the EventLog, which supports the adding and display points function
+Obtained total points!
+
+Player Ja Morant has been added to your roster!
+
+Obtained total points!
+
+Player Lebron James has been added to your roster!
+
+Obtained total points!
