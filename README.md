@@ -38,6 +38,7 @@ for the upcoming week
 
 ## Phase 4: Task 2
 Here is an example demo of the EventLog, which supports the adding and display points function
+
 Obtained total points!
 
 Player Ja Morant has been added to your roster!
@@ -47,3 +48,13 @@ Obtained total points!
 Player Lebron James has been added to your roster!
  
 Obtained total points!
+
+## Phase 4: Task 3, Reflection on UML Diagram
+Overall I thought that my classes (in particular TeamRoster and PlayerProfile) were simple enough that it doesn't require
+any complicated refactoring. However, if I had more time, I would refactor the classes relevant to the UI (Main Screen, Splash 
+Screen etc.). Due to time constraints and my limited knowledge of JSwing, I made 3 seperate classes for each screen, 
+which increased the amount of repetitiveness of certain methods. In the future, I would improve this structure by adding
+an abstract class, so that all the UI classes can inherit certain methods and fields from that abstract class. If the 
+class contains methods that deviate away from the implemented methods in the abstract class, I can simply override the 
+method to fit the behaviour of that class.
+
