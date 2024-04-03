@@ -45,5 +45,5 @@ Player Ja Morant has been added to your roster!
 Obtained total points!
 
 Player Lebron James has been added to your roster!
-
+ 
 Obtained total points!
