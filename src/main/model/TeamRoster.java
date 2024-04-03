@@ -40,6 +40,8 @@ public class TeamRoster implements Writable {
     //EFFECTS: Adds PlayerProfile into the playerRoster
     public void addPlayer(PlayerProfile player) {
         playerRoster.add(player);
+        EventLog.getInstance().logEvent(new Event("Player " + player.getName()
+                + " has been added to your roster!"));
     }
 
     //MODIFIES: this
@@ -70,6 +72,7 @@ public class TeamRoster implements Writable {
         for (PlayerProfile player: playerRoster) {
             sum += player.getProjectedPoints();
         }
+        EventLog.getInstance().logEvent(new Event("Obtained total points!"));
         return sum;
     }
 

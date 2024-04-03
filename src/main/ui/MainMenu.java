@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.PlayerProfile;
 import model.TeamRoster;
 import persistence.JsonWriter;
@@ -9,6 +11,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainMenu extends JFrame {
 
@@ -42,6 +45,21 @@ public class MainMenu extends JFrame {
         addButtons();
         addPanels();
         setVisible(true);
+        setClosingMethod();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: adds a closing window listener that prints all event logs
+    private void setClosingMethod() {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Iterator<Event> events = EventLog.getInstance().iterator();
+                while (events.hasNext()) {
+                    System.out.println(events.next());
+                }
+            }
+        });
     }
 
     //MODIFIES: this
@@ -115,7 +133,7 @@ public class MainMenu extends JFrame {
     //MODIFIES: this
     //EFFECTS: sets the panel that displays all buttons
     private void initializeButtonsPanel() {
-        buttonsPanel = new JPanel(new GridLayout(2,2));
+        buttonsPanel = new JPanel(new GridLayout(2, 2));
         buttonsPanel.setPreferredSize(new Dimension(600, 100));
     }
 
@@ -136,7 +154,7 @@ public class MainMenu extends JFrame {
     private void initializePointsPanel() {
         pointsPanel = new JPanel();
         pointsPanel.setBackground(Color.LIGHT_GRAY);
-        pointsPanel.setPreferredSize(new Dimension(600,75));
+        pointsPanel.setPreferredSize(new Dimension(600, 75));
         pointLabel = new JLabel("Your Team Will generate: ");
         pointsPanel.add(pointLabel);
     }

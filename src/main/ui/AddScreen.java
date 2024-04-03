@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.PlayerProfile;
 import model.TeamRoster;
 
@@ -7,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Iterator;
 
 public class AddScreen extends JFrame {
 
@@ -48,6 +53,21 @@ public class AddScreen extends JFrame {
         setFrame();
         add(dataInputPanel, BorderLayout.NORTH);
         add(optionPanel, BorderLayout.SOUTH);
+        setClosingMethod();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: adds a closing window listener that prints all event logs
+    private void setClosingMethod() {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Iterator<Event> events = EventLog.getInstance().iterator();
+                while (events.hasNext()) {
+                    System.out.println(events.next());
+                }
+            }
+        });
     }
 
     //MODIFIES: this
