@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//this class is adapted from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 //Fantasy application
 public class FantasyApp {
     private static final String JSON_STORE = "./data/myTeam.json";

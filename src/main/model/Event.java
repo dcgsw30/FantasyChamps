@@ -3,7 +3,6 @@ package model;
 import java.util.Calendar;
 import java.util.Date;
 
-//Class obtained from Alarm System file provided in CPSC 210 https://github.students.cs.ubc.ca/CPSC210/AlarmSystem
 public class Event {
     private static final int HASH_CONSTANT = 13;
     private Date dateLogged;

@@ -4,7 +4,6 @@ import model.PlayerProfile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//this test class is adapted from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 //tests the property of the PlayerProfile generated from JSON
 public class JsonTest {
     protected void checkPlayerProfile(String name, String team, double averagePoints, double averageRebounds,

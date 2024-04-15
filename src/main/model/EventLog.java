@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-//Class obtained from Alarm System file provided in CPSC 210 https://github.students.cs.ubc.ca/CPSC210/AlarmSystem
 public class EventLog implements Iterable<Event> {
     /** the only EventLog in the system (Singleton Design Pattern) */
     private static EventLog theLog;

@@ -12,7 +12,6 @@ import java.util.stream.Stream;
 import org.json.*;
 
 // Represents a reader that reads teamRoster from JSON data stored in file
-//this class is adapted from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonReader {
     private String source;
 
