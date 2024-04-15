@@ -34,5 +34,17 @@
         "team": "Memphis Grizzlies",
         "averageBlocks": 0.3,
         "averageTurnovers": 4
+    },
+    {
+        "projectedPoints": 112,
+        "averagePoints": 102,
+        "averageRebounds": 1,
+        "averageSteals": 1,
+        "gamesThisWeek": 1,
+        "name": "Shubh",
+        "averageAssists": 1,
+        "team": "Shubhs excellent team",
+        "averageBlocks": 1,
+        "averageTurnovers": 1
     }
 ]}
