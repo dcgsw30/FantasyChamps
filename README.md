@@ -1,7 +1,5 @@
 # My Personal Project - FantasyChamps Forecast
 
-## CPSC 210 - Phase 0
-
 In fantasy basketball, the most successful team is one that achieves the highest fantasy points per week. Generally, 
 the fantasy points scoring system is based on several quantitative measures, such as goals made, field throws made, 
 assists, and blocks. However, team performance per week fluctuates depending on game schedules,
